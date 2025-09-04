@@ -1,5 +1,5 @@
 {
-  "name": "sws-get-available-blocks",
+  "name": "sws-fetch-event-blocks",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

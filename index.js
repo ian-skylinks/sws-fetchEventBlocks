@@ -28,7 +28,7 @@ function monthStartEnd({ year, month }) {
   return { start, end };
 }
 
-module.exports = async function getAvailableBlocks(req, res) {
+module.exports = async function fetchEventBlocks(req, res) {
   try {
     const monthStr = req.query.month;
     const parsed = parseMonth(monthStr);

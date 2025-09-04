@@ -4,13 +4,13 @@ steps:
     args:
       - functions
       - deploy
-      - getAvailableBlocks
+      - fetchEventBlocks
       - --gen2
       - --runtime=nodejs20
-      - --region=us-central1        # change if needed
-      - --entry-point=getAvailableBlocks
+      - --region=us-west2        # change if needed
+      - --entry-point=fetchEventBlocks
       - --source=.
       - --trigger-http
       - --allow-unauthenticated
       - --set-secrets=AIRTABLE_TOKEN=projects/PROJECT_ID/secrets/AIRTABLE_TOKEN:latest
-      - --set-env-vars=AIRTABLE_BASE_ID=appXXXXXXXXXXXX,TIMEZONE=America/Los_Angeles
+      - --set-env-vars=AIRTABLE_BASE_ID=app1L7NbGnRnRZ8UD,TIMEZONE=America/Los_Angeles
