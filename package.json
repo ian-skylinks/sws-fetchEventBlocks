@@ -1,0 +1,10 @@
+{
+  "name": "sws-get-available-blocks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "airtable": "^0.12.2",
+    "luxon": "^3.4.4"
+  }
+}
