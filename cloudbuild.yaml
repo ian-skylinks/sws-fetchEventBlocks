@@ -33,3 +33,4 @@ steps:
           --memory=${_MEMORY} \
           --quiet
 
+logging: CLOUD_LOGGING_ONLY
