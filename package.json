@@ -1,10 +1,12 @@
 {
-  "name": "sws-fetch-event-blocks",
+  "name": "sws-fetchEventBlocks",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": { "node": ">=20" },
   "license": "MIT",
   "dependencies": {
     "airtable": "^0.12.2",
-    "luxon": "^3.4.4"
+    "luxon": "^3.5.0"
   }
 }
+
