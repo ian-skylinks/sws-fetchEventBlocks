@@ -25,6 +25,7 @@ function monthStartEnd({ year, month }) {
   return { start, end: start.plus({ months: 1 }) }; // [start, end)
 }
 
+
 module.exports.fetchEventBlocks = async (req, res) => {
   try {
     const parsed = parseMonth(req.query.month);
