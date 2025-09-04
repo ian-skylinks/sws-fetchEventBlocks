@@ -1,4 +1,6 @@
 substitutions:
+  _ENVS: >-
+    --set-env-vars=AIRTABLE_BASE_ID=app1L7NbGnRnRZ8UD,TIMEZONE=America/Los_Angeles
   _REGION: us-west1
   _FUNC_NAME: fetchEventBlocks
   _ENTRY: fetchEventBlocks
