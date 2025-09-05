@@ -41,11 +41,24 @@ steps:
       - -lc
       - |
         set -euo pipefail
-        URL="$(gcloud functions describe ${_FUNC_NAME} --gen2 --region=${_REGION} --format='value(serviceConfig.uri)')"
-        if [[ -z "${URL}" ]]; then
+        URL="$$(gcloud functions describe ${_FUNC_NAME} --gen2 --region=${_REGION} --format='value(serviceConfig.uri)')"
+        if [[ -z "$$URL" ]]; then
           echo "ERROR: Function URL is empty; deploy likely failed or is still provisioning."
           exit 1
         fi
-        echo "FUNCTION_URL=${URL}"
+        echo "FUNCTION_URL=$$URL"
+
+  # (Optional) quick smoke test: HEAD request to confirm it answers
+  # - name: curlimages/curl:8.10.1
+  #   id: "Smoke test"
+  #   entrypoint: sh
+  #   args:
+  #     - -lc
+  #     - |
+  #       set -eu
+  #       URL="$$(gcloud functions describe ${_FUNC_NAME} --gen2 --region=${_REGION} --format='value(serviceConfig.uri)')"
+  #       echo "Pinging $$URL"
+  #       curl -I --max-time 20 "$$URL"
+
 options:
   logging: CLOUD_LOGGING_ONLY
