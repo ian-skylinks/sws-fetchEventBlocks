@@ -13,6 +13,7 @@ substitutions:
     --set-secrets=AIRTABLE_TOKEN=projects/$PROJECT_ID/secrets/AIRTABLE_TOKEN:latest
 
 steps:
+  # Deploy (Gen 2)
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
     entrypoint: bash
     args:
@@ -31,5 +32,20 @@ steps:
           --timeout=${_TIMEOUT} \
           --memory=${_MEMORY} \
           --quiet
+
+  # Fetch & print the URL; fail if missing
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    id: "Print function URL"
+    entrypoint: bash
+    args:
+      - -lc
+      - |
+        set -euo pipefail
+        URL="$(gcloud functions describe ${_FUNC_NAME} --gen2 --region=${_REGION} --format='value(serviceConfig.uri)')"
+        if [[ -z "${URL}" ]]; then
+          echo "ERROR: Function URL is empty; deploy likely failed or is still provisioning."
+          exit 1
+        fi
+        echo "FUNCTION_URL=${URL}"
 options:
   logging: CLOUD_LOGGING_ONLY
