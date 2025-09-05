@@ -1,6 +1,4 @@
 substitutions:
-  _ENVS: >-
-    --set-env-vars=AIRTABLE_BASE_ID=app1L7NbGnRnRZ8UD,TIMEZONE=America/Los_Angeles
   _REGION: us-west1
   _FUNC_NAME: fetchEventBlocks
   _ENTRY: fetchEventBlocks
@@ -9,8 +7,7 @@ substitutions:
   _MEMORY: 256Mi
   # Non-secrets here:
   _ENVS: >
-    --set-env-vars=AIRTABLE_BASE_ID=app1L7NbGnRnRZ8UD,
-    TIMEZONE=America/Los_Angeles
+    --set-env-vars=AIRTABLE_BASE_ID=app1L7NbGnRnRZ8UD,TIMEZONE=America/Los_Angeles
   # Secrets here:
   _SECRETS: >
     --set-secrets=AIRTABLE_TOKEN=projects/$PROJECT_ID/secrets/AIRTABLE_TOKEN:latest
