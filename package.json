@@ -1,12 +1,14 @@
 {
-  "name": "sws-fetchEventBlocks",
+  "name": "fetch-event-blocks",
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
+  "type": "commonjs",
   "engines": { "node": ">=20" },
-  "license": "MIT",
+  "scripts": {
+    "start": "functions-framework --target=fetchEventBlocks"
+  },
   "dependencies": {
-    "airtable": "^0.12.2",
-    "luxon": "^3.5.0"
+    "@google-cloud/functions-framework": "^3.4.0"
   }
 }
-
